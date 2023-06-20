@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.Scanner;
 abstract class BangunRuang {
     protected double luasPermukaan;
@@ -9,6 +10,7 @@ abstract class BangunRuang {
 
     public void tampilkanLuasPermukaan() {
         System.out.println("Luas Permukaan: " + luasPermukaan);
+//        JOptionPane.showMessageDialog(null, luasPermukaan);
     }
 
     public void tampilkanVolume() {
