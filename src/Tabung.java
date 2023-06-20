@@ -7,21 +7,13 @@ public class Tabung extends BangunRuang {
         this.tinggi = tinggi;
     }
 
-    public double getJariJari() {
-        return jariJari;
-    }
-
-    public double getTinggi() {
-        return tinggi;
+    @Override
+    public void hitungLuasPermukaan() {
+        luasPermukaan = 2 * Math.PI * jariJari * (jariJari + tinggi);
     }
 
     @Override
-    public double hitungLuasPermukaan() {
-        return 2 * Math.PI * jariJari * (jariJari + tinggi);
-    }
-
-    @Override
-    public double hitungVolume() {
-        return Math.PI * Math.pow(jariJari, 2) * tinggi;
+    public void hitungVolume() {
+        volume = Math.PI * Math.pow(jariJari, 2) * tinggi;
     }
 }

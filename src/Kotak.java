@@ -5,17 +5,13 @@ public class Kotak extends BangunRuang {
         this.sisi = sisi;
     }
 
-    public double getSisi() {
-        return sisi;
+    @Override
+    public void hitungLuasPermukaan() {
+        luasPermukaan = 6 * Math.pow(sisi, 2);
     }
 
     @Override
-    public double hitungLuasPermukaan() {
-        return 6 * Math.pow(sisi, 2);
-    }
-
-    @Override
-    public double hitungVolume() {
-        return Math.pow(sisi, 3);
+    public void hitungVolume() {
+        volume = Math.pow(sisi, 3);
     }
 }

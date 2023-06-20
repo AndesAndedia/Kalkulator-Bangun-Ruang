@@ -5,17 +5,13 @@ public class Bola extends BangunRuang {
         this.jariJari = jariJari;
     }
 
-    public double getJariJari() {
-        return jariJari;
+    @Override
+    public void hitungLuasPermukaan() {
+        luasPermukaan = 4 * Math.PI * Math.pow(jariJari, 2);
     }
 
     @Override
-    public double hitungLuasPermukaan() {
-        return 4 * Math.PI * Math.pow(jariJari, 2);
-    }
-
-    @Override
-    public double hitungVolume() {
-        return (4.0 / 3.0) * Math.PI * Math.pow(jariJari, 3);
+    public void hitungVolume() {
+        volume = (4.0 / 3.0) * Math.PI * Math.pow(jariJari, 3);
     }
 }

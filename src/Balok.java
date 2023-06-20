@@ -9,25 +9,13 @@ public class Balok extends BangunRuang {
         this.tinggi = tinggi;
     }
 
-    public double getPanjang() {
-        return panjang;
-    }
-
-    public double getLebar() {
-        return lebar;
-    }
-
-    public double getTinggi() {
-        return tinggi;
+    @Override
+    public void hitungLuasPermukaan() {
+        luasPermukaan = 2 * (panjang * lebar + panjang * tinggi + lebar * tinggi);
     }
 
     @Override
-    public double hitungLuasPermukaan() {
-        return 2 * ((panjang * lebar) + (panjang * tinggi) + (lebar * tinggi));
-    }
-
-    @Override
-    public double hitungVolume() {
-        return panjang * lebar * tinggi;
+    public void hitungVolume() {
+        volume = panjang * lebar * tinggi;
     }
 }

@@ -7,22 +7,13 @@ public class Kerucut extends BangunRuang {
         this.tinggi = tinggi;
     }
 
-    public double getJariJari() {
-        return jariJari;
-    }
-
-    public double getTinggi() {
-        return tinggi;
+    @Override
+    public void hitungLuasPermukaan() {
+        luasPermukaan = Math.PI * jariJari * (jariJari + Math.sqrt(Math.pow(tinggi, 2) + Math.pow(jariJari, 2)));
     }
 
     @Override
-    public double hitungLuasPermukaan() {
-        double s = Math.sqrt(Math.pow(jariJari, 2) + Math.pow(tinggi, 2));
-        return Math.PI * jariJari * (jariJari + s);
-    }
-
-    @Override
-    public double hitungVolume() {
-        return (1.0 / 3.0) * Math.PI * Math.pow(jariJari, 2) * tinggi;
+    public void hitungVolume() {
+        volume = (1.0 / 3.0) * Math.PI * Math.pow(jariJari, 2) * tinggi;
     }
 }
