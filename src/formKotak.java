@@ -35,7 +35,8 @@ public class formKotak {
             kotak.tampilkanVolume();
 
             fieldLuas.setText(String.valueOf(kotak.luasPermukaan));
-            fieldVolume.setText(String.valueOf(kotak.volume));        }
+            fieldVolume.setText(String.valueOf(kotak.volume));
+        }
     });
 }
 }
