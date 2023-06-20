@@ -92,12 +92,12 @@
           <text value="Hitung"/>
         </properties>
       </component>
-      <component id="bdf1" class="javax.swing.JButton" binding="button2" default-binding="true">
+      <component id="bdf1" class="javax.swing.JButton" binding="kembaliButton" default-binding="true">
         <constraints>
           <grid row="7" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Button"/>
+          <text value="Kembali"/>
         </properties>
       </component>
       <hspacer id="ba07f">
