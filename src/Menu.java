@@ -26,81 +26,23 @@ public class Menu {
 
             switch (pilihan) {
                 case 1:
-                    System.out.print("Masukkan panjang balok: ");
-                    double panjang = scanner.nextDouble();
-                    System.out.print("Masukkan lebar balok: ");
-                    double lebar = scanner.nextDouble();
-                    System.out.print("Masukkan tinggi balok: ");
-                    double tinggiBalok = scanner.nextDouble();
-
-                    Balok balok = new Balok(panjang, lebar, tinggiBalok);
-                    balok.hitungLuasPermukaan();
-                    balok.hitungVolume();
-
-                    System.out.println("=== Hasil Perhitungan Balok ===");
-                    balok.tampilkanLuasPermukaan();
-                    balok.tampilkanVolume();
-                    konfirmasiLanjut();
+                    hitungBalok();
                     break;
 
                 case 2:
-                    System.out.print("Masukkan sisi kotak: ");
-                    double sisi = scanner.nextDouble();
-
-                    Kotak kotak = new Kotak(sisi);
-                    kotak.hitungLuasPermukaan();
-                    kotak.hitungVolume();
-
-                    System.out.println("=== Hasil Perhitungan Kotak ===");
-                    kotak.tampilkanLuasPermukaan();
-                    kotak.tampilkanVolume();
-                    konfirmasiLanjut();
+                    hitungKotak();
                     break;
 
                 case 3:
-                    System.out.print("Masukkan jari-jari tabung: ");
-                    double jariJariTabung = scanner.nextDouble();
-                    System.out.print("Masukkan tinggi tabung: ");
-                    double tinggiTabung = scanner.nextDouble();
-
-                    Tabung tabung = new Tabung(jariJariTabung, tinggiTabung);
-                    tabung.hitungLuasPermukaan();
-                    tabung.hitungVolume();
-
-                    System.out.println("=== Hasil Perhitungan Tabung ===");
-                    tabung.tampilkanLuasPermukaan();
-                    tabung.tampilkanVolume();
-                    konfirmasiLanjut();
+                    hitungTabung();
                     break;
 
                 case 4:
-                    System.out.print("Masukkan jari-jari kerucut: ");
-                    double jariJariKerucut = scanner.nextDouble();
-                    System.out.print("Masukkan tinggi kerucut: ");
-                    double tinggiKerucut = scanner.nextDouble();
-
-                    Kerucut kerucut = new Kerucut(jariJariKerucut, tinggiKerucut);
-                    kerucut.hitungLuasPermukaan();
-                    kerucut.hitungVolume();
-
-                    System.out.println("=== Hasil Perhitungan Kerucut ===");
-                    kerucut.tampilkanLuasPermukaan();
-                    kerucut.tampilkanVolume();
-                    konfirmasiLanjut();
+                    hitungKerucut();
                     break;
 
                 case 5:
-                    System.out.print("Masukkan jari-jari bola: ");
-                    double jariJariBola = scanner.nextDouble();
-
-                    Bola bola = new Bola(jariJariBola);
-                    bola.hitungLuasPermukaan();
-                    bola.hitungVolume();
-
-                    System.out.println("=== Hasil Perhitungan Bola ===");
-                    bola.tampilkanLuasPermukaan();
-                    bola.tampilkanVolume();
-                    konfirmasiLanjut();
+                    hitungBola();
                     break;
 
                 case 0:
@@ -116,12 +58,91 @@ public class Menu {
             System.out.println();
         } while (pilihan != 0);
     }
+
+    private void hitungBalok() {
+        System.out.print("Masukkan panjang balok: ");
+        double panjang = scanner.nextDouble();
+        System.out.print("Masukkan lebar balok: ");
+        double lebar = scanner.nextDouble();
+        System.out.print("Masukkan tinggi balok: ");
+        double tinggi = scanner.nextDouble();
+
+        Balok balok = new Balok(panjang, lebar, tinggi);
+        balok.hitungLuasPermukaan();
+        balok.hitungVolume();
+
+        System.out.println("=== Hasil Perhitungan Balok ===");
+        balok.tampilkanLuasPermukaan();
+        balok.tampilkanVolume();
+        konfirmasiLanjut();
+    }
+
+    private void hitungKotak() {
+        System.out.print("Masukkan sisi kotak: ");
+        double sisi = scanner.nextDouble();
+
+        Kotak kotak = new Kotak(sisi);
+        kotak.hitungLuasPermukaan();
+        kotak.hitungVolume();
+
+        System.out.println("=== Hasil Perhitungan Kotak ===");
+        kotak.tampilkanLuasPermukaan();
+        kotak.tampilkanVolume();
+        konfirmasiLanjut();
+    }
+
+    private void hitungTabung() {
+        System.out.print("Masukkan jari-jari tabung: ");
+        double jariJari = scanner.nextDouble();
+        System.out.print("Masukkan tinggi tabung: ");
+        double tinggi = scanner.nextDouble();
+
+        Tabung tabung = new Tabung(jariJari, tinggi);
+        tabung.hitungLuasPermukaan();
+        tabung.hitungVolume();
+
+        System.out.println("=== Hasil Perhitungan Tabung ===");
+        tabung.tampilkanLuasPermukaan();
+        tabung.tampilkanVolume();
+        konfirmasiLanjut();
+    }
+
+    private void hitungKerucut() {
+        System.out.print("Masukkan jari-jari kerucut: ");
+        double jariJari = scanner.nextDouble();
+        System.out.print("Masukkan tinggi kerucut: ");
+        double tinggi = scanner.nextDouble();
+
+        Kerucut kerucut = new Kerucut(jariJari, tinggi);
+        kerucut.hitungLuasPermukaan();
+        kerucut.hitungVolume();
+
+        System.out.println("=== Hasil Perhitungan Kerucut ===");
+        kerucut.tampilkanLuasPermukaan();
+        kerucut.tampilkanVolume();
+        konfirmasiLanjut();
+    }
+
+    private void hitungBola() {
+        System.out.print("Masukkan jari-jari bola: ");
+        double jariJari = scanner.nextDouble();
+
+        Bola bola = new Bola(jariJari);
+        bola.hitungLuasPermukaan();
+        bola.hitungVolume();
+
+        System.out.println("=== Hasil Perhitungan Bola ===");
+        bola.tampilkanLuasPermukaan();
+        bola.tampilkanVolume();
+        konfirmasiLanjut();
+    }
+
     private void konfirmasiLanjut() {
-        System.out.print("Apakah Anda ingin menghitung bangun ruang lainnya? (ya/tidak) ");
+        System.out.print("Apakah Anda ingin menghitung bangun ruang yang sama lagi? (ya/tidak) ");
         String konfirmasi = scanner.next();
 
         if (konfirmasi.equalsIgnoreCase("ya")) {
-            tampilkanMenu();
+            System.out.println();
         } else {
             System.out.println("Terima kasih telah menggunakan aplikasi ini!");
             exit(0);
