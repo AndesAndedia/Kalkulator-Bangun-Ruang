@@ -10,6 +10,7 @@ public class formTabung {
     private JButton hitungButton;
     private JButton kembaliButton;
     static JFrame frame = new JFrame();
+
     public static void main(String[] args) {
         JFrame frame = new JFrame("formTabung");
         frame.setContentPane(new formTabung().formTabungs);
@@ -24,22 +25,27 @@ public class formTabung {
         hitungButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                double jariJari, tinggi;
+                try {
+                    double jariJari, tinggi;
 
-                jariJari = Double.parseDouble(fieldJari.getText());
-                tinggi = Double.parseDouble(fieldTinggi.getText());
+                    jariJari = Double.parseDouble(fieldJari.getText());
+                    tinggi = Double.parseDouble(fieldTinggi.getText());
 
-                Tabung tabung = new Tabung(jariJari, tinggi);
-                tabung.hitungLuasPermukaan();
-                tabung.hitungVolume();
+                    Tabung tabung = new Tabung(jariJari, tinggi);
+                    tabung.hitungLuasPermukaan();
+                    tabung.hitungVolume();
 
-                tabung.tampilkanLuasPermukaan();
-                tabung.tampilkanVolume();
+                    tabung.tampilkanLuasPermukaan();
+                    tabung.tampilkanVolume();
 
-                fieldLuas.setText(String.valueOf(tabung.luasPermukaan));
-                fieldVolume.setText(String.valueOf(tabung.volume));
+                    fieldLuas.setText(String.valueOf(tabung.luasPermukaan));
+                    fieldVolume.setText(String.valueOf(tabung.volume));
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null, "Input tidak valid! Pastikan input adalah angka.");
+                }
             }
         });
+
         kembaliButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
@@ -48,7 +54,8 @@ public class formTabung {
             }
         });
     }
-    public void showP(){
+
+    public void showP() {
 
         frame.setContentPane(new formTabung().formTabungs);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

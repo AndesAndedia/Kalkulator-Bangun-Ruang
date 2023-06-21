@@ -7,7 +7,7 @@ public class formKerucut {
     private JTextField fieldTinggi;
     private JTextField fieldLuas;
     private JTextField fieldVolume;
-    private JButton button1;
+    private JButton hitungButton;
     private JButton kembaliButton;
     static JFrame frame = new JFrame();
     public static void main(String[] args) {
@@ -21,23 +21,27 @@ public class formKerucut {
     private JPanel formKerucuts;
 
     public formKerucut() {
-        button1.addActionListener(new ActionListener() {
+        hitungButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                double jariJari, tinggi;
+                try {
+                    double jariJari, tinggi;
 
-                jariJari = Double.parseDouble(fieldJari.getText());
-                tinggi = Double.parseDouble(fieldTinggi.getText());
+                    jariJari = Double.parseDouble(fieldJari.getText());
+                    tinggi = Double.parseDouble(fieldTinggi.getText());
 
-                Kerucut kerucut = new Kerucut(jariJari, tinggi);
-                kerucut.hitungLuasPermukaan();
-                kerucut.hitungVolume();
+                    Kerucut kerucut = new Kerucut(jariJari, tinggi);
+                    kerucut.hitungLuasPermukaan();
+                    kerucut.hitungVolume();
 
-                kerucut.tampilkanLuasPermukaan();
-                kerucut.tampilkanVolume();
+                    kerucut.tampilkanLuasPermukaan();
+                    kerucut.tampilkanVolume();
 
-                fieldLuas.setText(String.valueOf(kerucut.luasPermukaan));
-                fieldVolume.setText(String.valueOf(kerucut.volume));
+                    fieldLuas.setText(String.valueOf(kerucut.luasPermukaan));
+                    fieldVolume.setText(String.valueOf(kerucut.volume));
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null, "Input tidak valid! Pastikan input adalah angka.");
+                }
             }
         });
         kembaliButton.addActionListener(new ActionListener() {

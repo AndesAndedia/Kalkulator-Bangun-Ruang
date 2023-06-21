@@ -29,21 +29,26 @@ public class formBola {
         hitungButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                double jariJari;
+                try {
+                    double jariJari;
 
-                jariJari = Double.parseDouble(fieldJari.getText());
+                    jariJari = Double.parseDouble(fieldJari.getText());
 
-                Bola bola = new Bola(jariJari);
-                bola.hitungLuasPermukaan();
-                bola.hitungVolume();
+                    Bola bola = new Bola(jariJari);
+                    bola.hitungLuasPermukaan();
+                    bola.hitungVolume();
 
-                bola.tampilkanLuasPermukaan();
-                bola.tampilkanVolume();
+                    bola.tampilkanLuasPermukaan();
+                    bola.tampilkanVolume();
 
-                fieldLuas.setText(String.valueOf(bola.luasPermukaan));
-                fieldVolume.setText(String.valueOf(bola.volume));
+                    fieldLuas.setText(String.valueOf(bola.luasPermukaan));
+                    fieldVolume.setText(String.valueOf(bola.volume));
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null, "Input tidak valid! Pastikan input adalah angka.");
+                }
             }
         });
+
         kembaliButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();

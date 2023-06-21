@@ -8,7 +8,7 @@ public class formBalok {
     private JTextField fieldTinggi;
     private JTextField fieldLuas;
     private JButton buttonHitung;
-    private JButton buttonKembali;
+    private JButton kembaliButton;
     static JFrame frame = new JFrame();
 
     public static void main(String[] args) {
@@ -18,7 +18,8 @@ public class formBalok {
         frame.pack();
         frame.setVisible(true);
     }
-    public void showP(){
+
+    public void showP() {
 
         frame.setContentPane(new formBalok().formBaloks);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -31,27 +32,32 @@ public class formBalok {
     private JLabel labelVolume;
 
     public formBalok() {
-    buttonHitung.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            double panjang, lebar, tinggi;
+        buttonHitung.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    double panjang, lebar, tinggi;
 
-            panjang = Double.parseDouble(fieldPanjang.getText());
-            lebar = Double.parseDouble(fieldLebar.getText());
-            tinggi = Double.parseDouble(fieldTinggi.getText());
+                    panjang = Double.parseDouble(fieldPanjang.getText());
+                    lebar = Double.parseDouble(fieldLebar.getText());
+                    tinggi = Double.parseDouble(fieldTinggi.getText());
 
-            Balok balok = new Balok(panjang, lebar, tinggi);
-            balok.hitungLuasPermukaan();
-            balok.hitungVolume();
+                    Balok balok = new Balok(panjang, lebar, tinggi);
+                    balok.hitungLuasPermukaan();
+                    balok.hitungVolume();
 
-            balok.tampilkanLuasPermukaan();
-            balok.tampilkanVolume();
+                    balok.tampilkanLuasPermukaan();
+                    balok.tampilkanVolume();
 
-            fieldLuas.setText(String.valueOf(balok.luasPermukaan));
-            fieldVolume.setText(String.valueOf(balok.volume));
-        }
-    });
-        buttonKembali.addActionListener(new ActionListener() {
+                    fieldLuas.setText(String.valueOf(balok.luasPermukaan));
+                    fieldVolume.setText(String.valueOf(balok.volume));
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null, "Input tidak valid! Pastikan semua input adalah angka.");
+                }
+            }
+        });
+
+        kembaliButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
                 mainMenu f = new mainMenu();
