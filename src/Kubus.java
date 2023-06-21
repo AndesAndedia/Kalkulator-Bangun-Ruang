@@ -1,7 +1,7 @@
-public class Kotak extends BangunRuang {
+public class Kubus extends BangunRuang {
     private double sisi;
 
-    public Kotak(double sisi) {
+    public Kubus(double sisi) {
         this.sisi = sisi;
     }
 

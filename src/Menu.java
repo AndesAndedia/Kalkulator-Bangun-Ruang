@@ -15,7 +15,7 @@ public class Menu {
             System.out.println("=== APLIKASI MENGHITUNG BANGUN RUANG ===");
             System.out.println("Pilih bangun ruang yang ingin dihitung:");
             System.out.println("1. Balok");
-            System.out.println("2. Kotak");
+            System.out.println("2. Kubus");
             System.out.println("3. Tabung");
             System.out.println("4. Kerucut");
             System.out.println("5. Bola");
@@ -81,11 +81,11 @@ public class Menu {
         System.out.print("Masukkan sisi kotak: ");
         double sisi = scanner.nextDouble();
 
-        Kotak kotak = new Kotak(sisi);
+        Kubus kotak = new Kubus(sisi);
         kotak.hitungLuasPermukaan();
         kotak.hitungVolume();
 
-        System.out.println("=== Hasil Perhitungan Kotak ===");
+        System.out.println("=== Hasil Perhitungan Kubus ===");
         kotak.tampilkanLuasPermukaan();
         kotak.tampilkanVolume();
         konfirmasiLanjut();

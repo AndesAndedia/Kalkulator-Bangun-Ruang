@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class formKotak {
+public class formKubus {
     private JTextField fieldSisi;
     private JTextField fieldLuas;
     private JButton hitungButton;
@@ -11,17 +11,17 @@ public class formKotak {
     static JFrame frame = new JFrame();
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("formKotak");
-        frame.setContentPane(new formKotak().formKotaks);
+        JFrame frame = new JFrame("formKubus");
+        frame.setContentPane(new formKubus().formKubuss);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
     }
 
-    private JPanel formKotaks;
+    private JPanel formKubuss;
     private JPanel tittle;
 
-    public formKotak() {
+    public formKubus() {
         hitungButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -30,15 +30,15 @@ public class formKotak {
 
                     sisi = Double.parseDouble(fieldSisi.getText());
 
-                    Kotak kotak = new Kotak(sisi);
-                    kotak.hitungLuasPermukaan();
-                    kotak.hitungVolume();
+                    Kubus kubus = new Kubus(sisi);
+                    kubus.hitungLuasPermukaan();
+                    kubus.hitungVolume();
 
-                    kotak.tampilkanLuasPermukaan();
-                    kotak.tampilkanVolume();
+                    kubus.tampilkanLuasPermukaan();
+                    kubus.tampilkanVolume();
 
-                    fieldLuas.setText(String.valueOf(kotak.luasPermukaan));
-                    fieldVolume.setText(String.valueOf(kotak.volume));
+                    fieldLuas.setText(String.valueOf(kubus.luasPermukaan));
+                    fieldVolume.setText(String.valueOf(kubus.volume));
                 } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(null, "Input tidak valid! Pastikan input adalah angka.");
                 }
@@ -55,9 +55,10 @@ public class formKotak {
 
     public void showP() {
 
-        frame.setContentPane(new formKotak().formKotaks);
+        frame.setContentPane(new formKubus().formKubuss);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
     }
+
 }
