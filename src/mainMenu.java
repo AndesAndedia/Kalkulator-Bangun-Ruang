@@ -20,6 +20,8 @@ public class mainMenu {
     }
 
     private JPanel mainP;
+    private JPanel tittle;
+    private JLabel bolaIMG;
 
     public mainMenu() {
     balokButton.addActionListener(new ActionListener() {

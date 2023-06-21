@@ -30,6 +30,7 @@ public class formBalok {
     private JPanel formBaloks;
     private JTextField fieldVolume;
     private JLabel labelVolume;
+    private JPanel tittle;
 
     public formBalok() {
         buttonHitung.addActionListener(new ActionListener() {

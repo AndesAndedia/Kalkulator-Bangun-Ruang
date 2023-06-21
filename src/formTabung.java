@@ -20,6 +20,7 @@ public class formTabung {
     }
 
     private JPanel formTabungs;
+    private JPanel tittle;
 
     public formTabung() {
         hitungButton.addActionListener(new ActionListener() {

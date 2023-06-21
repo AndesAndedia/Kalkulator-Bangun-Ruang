@@ -18,6 +18,7 @@ public class formBola {
     }
 
     private JPanel formBolas;
+    private JPanel tittle;
     public void showP(){
 
         frame.setContentPane(new formBola().formBolas);

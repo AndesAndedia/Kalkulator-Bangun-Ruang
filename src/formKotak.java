@@ -19,6 +19,7 @@ public class formKotak {
     }
 
     private JPanel formKotaks;
+    private JPanel tittle;
 
     public formKotak() {
         hitungButton.addActionListener(new ActionListener() {

@@ -7,7 +7,7 @@ public class formKerucut {
     private JTextField fieldTinggi;
     private JTextField fieldLuas;
     private JTextField fieldVolume;
-    private JButton hitungButton;
+    private JButton buttonHitung;
     private JButton kembaliButton;
     static JFrame frame = new JFrame();
     public static void main(String[] args) {
@@ -19,9 +19,10 @@ public class formKerucut {
     }
 
     private JPanel formKerucuts;
+    private JPanel tittle;
 
     public formKerucut() {
-        hitungButton.addActionListener(new ActionListener() {
+        buttonHitung.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
