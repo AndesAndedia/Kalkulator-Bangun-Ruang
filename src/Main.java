@@ -6,6 +6,14 @@ abstract class BangunRuang {
     public abstract void hitungLuasPermukaan();
 
     public abstract void hitungVolume();
+
+    public void tampilkanLuasPermukaan() {
+        System.out.println("Luas Permukaan: " + luasPermukaan);
+    }
+
+    public void tampilkanVolume() {
+        System.out.println("Volume: " + volume);
+    }
 }
 
 public class Main {
