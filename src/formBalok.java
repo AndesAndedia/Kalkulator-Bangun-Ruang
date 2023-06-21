@@ -1,8 +1,11 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 
 public class formBalok {
+    private DecimalFormat decimalFormat;
+
     private JTextField fieldPanjang;
     private JTextField fieldLebar;
     private JTextField fieldTinggi;
@@ -33,6 +36,8 @@ public class formBalok {
     private JPanel tittle;
 
     public formBalok() {
+        decimalFormat = new DecimalFormat("#.###");
+
         buttonHitung.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -50,8 +55,8 @@ public class formBalok {
                     balok.tampilkanLuasPermukaan();
                     balok.tampilkanVolume();
 
-                    fieldLuas.setText(String.valueOf(balok.luasPermukaan));
-                    fieldVolume.setText(String.valueOf(balok.volume));
+                    fieldLuas.setText(decimalFormat.format(balok.luasPermukaan));
+                    fieldVolume.setText(decimalFormat.format(balok.volume));
                 } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(null, "Input tidak valid! Pastikan semua input adalah angka.");
                 }

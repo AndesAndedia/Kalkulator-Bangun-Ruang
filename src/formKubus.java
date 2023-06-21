@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 
 public class formKubus {
     private JTextField fieldSisi;
@@ -9,6 +10,9 @@ public class formKubus {
     private JButton kembaliButton;
     private JTextField fieldVolume;
     static JFrame frame = new JFrame();
+    private JPanel formKubuss;
+    private JPanel tittle;
+    private DecimalFormat decimalFormat;
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("formKubus");
@@ -18,10 +22,16 @@ public class formKubus {
         frame.setVisible(true);
     }
 
-    private JPanel formKubuss;
-    private JPanel tittle;
+    public void showP() {
+        frame.setContentPane(new formKubus().formKubuss);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
+    }
 
     public formKubus() {
+        decimalFormat = new DecimalFormat("#.###");
+
         hitungButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -34,16 +44,14 @@ public class formKubus {
                     kubus.hitungLuasPermukaan();
                     kubus.hitungVolume();
 
-                    kubus.tampilkanLuasPermukaan();
-                    kubus.tampilkanVolume();
-
-                    fieldLuas.setText(String.valueOf(kubus.luasPermukaan));
-                    fieldVolume.setText(String.valueOf(kubus.volume));
+                    fieldLuas.setText(decimalFormat.format(kubus.luasPermukaan));
+                    fieldVolume.setText(decimalFormat.format(kubus.volume));
                 } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(null, "Input tidak valid! Pastikan input adalah angka.");
                 }
             }
         });
+
         kembaliButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
@@ -52,13 +60,4 @@ public class formKubus {
             }
         });
     }
-
-    public void showP() {
-
-        frame.setContentPane(new formKubus().formKubuss);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
-    }
-
 }

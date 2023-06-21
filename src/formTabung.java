@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 
 public class formTabung {
     private JTextField fieldJari;
@@ -10,6 +11,9 @@ public class formTabung {
     private JButton hitungButton;
     private JButton kembaliButton;
     static JFrame frame = new JFrame();
+    private JPanel formTabungs;
+    private JPanel tittle;
+    private DecimalFormat decimalFormat;
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("formTabung");
@@ -19,10 +23,16 @@ public class formTabung {
         frame.setVisible(true);
     }
 
-    private JPanel formTabungs;
-    private JPanel tittle;
+    public void showP() {
+        frame.setContentPane(new formTabung().formTabungs);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
+    }
 
     public formTabung() {
+        decimalFormat = new DecimalFormat("#.###");
+
         hitungButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -36,11 +46,8 @@ public class formTabung {
                     tabung.hitungLuasPermukaan();
                     tabung.hitungVolume();
 
-                    tabung.tampilkanLuasPermukaan();
-                    tabung.tampilkanVolume();
-
-                    fieldLuas.setText(String.valueOf(tabung.luasPermukaan));
-                    fieldVolume.setText(String.valueOf(tabung.volume));
+                    fieldLuas.setText(decimalFormat.format(tabung.luasPermukaan));
+                    fieldVolume.setText(decimalFormat.format(tabung.volume));
                 } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(null, "Input tidak valid! Pastikan input adalah angka.");
                 }
@@ -54,13 +61,5 @@ public class formTabung {
                 f.showP();
             }
         });
-    }
-
-    public void showP() {
-
-        frame.setContentPane(new formTabung().formTabungs);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
     }
 }

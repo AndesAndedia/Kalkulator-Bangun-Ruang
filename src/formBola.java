@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 
 public class formBola {
     private JTextField fieldJari;
@@ -9,6 +10,10 @@ public class formBola {
     private JButton hitungButton;
     private JButton kembaliButton;
     static JFrame frame = new JFrame();
+    private JPanel formBolas;
+    private JPanel tittle;
+    private DecimalFormat decimalFormat;
+
     public static void main(String[] args) {
         JFrame frame = new JFrame("formBola");
         frame.setContentPane(new formBola().formBolas);
@@ -17,16 +22,16 @@ public class formBola {
         frame.setVisible(true);
     }
 
-    private JPanel formBolas;
-    private JPanel tittle;
-    public void showP(){
-
+    public void showP() {
         frame.setContentPane(new formBola().formBolas);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
     }
+
     public formBola() {
+        decimalFormat = new DecimalFormat("#.###");
+
         hitungButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -39,11 +44,8 @@ public class formBola {
                     bola.hitungLuasPermukaan();
                     bola.hitungVolume();
 
-                    bola.tampilkanLuasPermukaan();
-                    bola.tampilkanVolume();
-
-                    fieldLuas.setText(String.valueOf(bola.luasPermukaan));
-                    fieldVolume.setText(String.valueOf(bola.volume));
+                    fieldLuas.setText(decimalFormat.format(bola.luasPermukaan));
+                    fieldVolume.setText(decimalFormat.format(bola.volume));
                 } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(null, "Input tidak valid! Pastikan input adalah angka.");
                 }

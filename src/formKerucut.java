@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 
 public class formKerucut {
     private JTextField fieldJari;
@@ -10,6 +11,10 @@ public class formKerucut {
     private JButton buttonHitung;
     private JButton kembaliButton;
     static JFrame frame = new JFrame();
+    private JPanel formKerucuts;
+    private JPanel tittle;
+    private DecimalFormat decimalFormat;
+
     public static void main(String[] args) {
         JFrame frame = new JFrame("formKerucut");
         frame.setContentPane(new formKerucut().formKerucuts);
@@ -18,10 +23,16 @@ public class formKerucut {
         frame.setVisible(true);
     }
 
-    private JPanel formKerucuts;
-    private JPanel tittle;
+    public void showP() {
+        frame.setContentPane(new formKerucut().formKerucuts);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
+    }
 
     public formKerucut() {
+        decimalFormat = new DecimalFormat("#.###");
+
         buttonHitung.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -35,16 +46,14 @@ public class formKerucut {
                     kerucut.hitungLuasPermukaan();
                     kerucut.hitungVolume();
 
-                    kerucut.tampilkanLuasPermukaan();
-                    kerucut.tampilkanVolume();
-
-                    fieldLuas.setText(String.valueOf(kerucut.luasPermukaan));
-                    fieldVolume.setText(String.valueOf(kerucut.volume));
+                    fieldLuas.setText(decimalFormat.format(kerucut.luasPermukaan));
+                    fieldVolume.setText(decimalFormat.format(kerucut.volume));
                 } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(null, "Input tidak valid! Pastikan input adalah angka.");
                 }
             }
         });
+
         kembaliButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
@@ -52,12 +61,5 @@ public class formKerucut {
                 f.showP();
             }
         });
-    }
-    public void showP(){
-
-        frame.setContentPane(new formKerucut().formKerucuts);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.pack();
-        frame.setVisible(true);
     }
 }
