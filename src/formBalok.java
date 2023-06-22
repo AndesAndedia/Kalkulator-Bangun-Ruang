@@ -34,6 +34,7 @@ public class formBalok {
     private JTextField fieldVolume;
     private JLabel labelVolume;
     private JPanel tittle;
+    private JButton resetButton;
 
     public formBalok() {
         decimalFormat = new DecimalFormat("#.###");
@@ -68,6 +69,17 @@ public class formBalok {
                 frame.dispose();
                 mainMenu f = new mainMenu();
                 f.showP();
+            }
+        });
+        resetButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                fieldTinggi.setText("");
+                fieldLebar.setText("");
+                fieldPanjang.setText("");
+                fieldVolume.setText("");
+                fieldLuas.setText("");
+                fieldPanjang.requestFocus();
             }
         });
     }

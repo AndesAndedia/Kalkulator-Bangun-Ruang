@@ -12,6 +12,7 @@ public class formBola {
     static JFrame frame = new JFrame();
     private JPanel formBolas;
     private JPanel tittle;
+    private JButton resetButton;
     private DecimalFormat decimalFormat;
 
     public static void main(String[] args) {
@@ -57,6 +58,15 @@ public class formBola {
                 frame.dispose();
                 mainMenu f = new mainMenu();
                 f.showP();
+            }
+        });
+        resetButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                fieldJari.setText("");
+                fieldVolume.setText("");
+                fieldLuas.setText("");
+                fieldJari.requestFocus();
             }
         });
     }

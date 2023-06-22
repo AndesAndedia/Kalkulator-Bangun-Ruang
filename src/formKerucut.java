@@ -13,6 +13,7 @@ public class formKerucut {
     static JFrame frame = new JFrame();
     private JPanel formKerucuts;
     private JPanel tittle;
+    private JButton resetButton;
     private DecimalFormat decimalFormat;
 
     public static void main(String[] args) {
@@ -59,6 +60,16 @@ public class formKerucut {
                 frame.dispose();
                 mainMenu f = new mainMenu();
                 f.showP();
+            }
+        });
+        resetButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                fieldTinggi.setText("");
+                fieldJari.setText("");
+                fieldVolume.setText("");
+                fieldLuas.setText("");
+                fieldJari.requestFocus();
             }
         });
     }

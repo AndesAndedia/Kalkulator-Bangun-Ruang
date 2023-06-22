@@ -12,6 +12,7 @@ public class formKubus {
     static JFrame frame = new JFrame();
     private JPanel formKubuss;
     private JPanel tittle;
+    private JButton resetButton;
     private DecimalFormat decimalFormat;
 
     public static void main(String[] args) {
@@ -57,6 +58,15 @@ public class formKubus {
                 frame.dispose();
                 mainMenu f = new mainMenu();
                 f.showP();
+            }
+        });
+        resetButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                fieldSisi.setText("");
+                fieldVolume.setText("");
+                fieldLuas.setText("");
+                fieldSisi.requestFocus();
             }
         });
     }
