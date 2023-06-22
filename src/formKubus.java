@@ -36,6 +36,7 @@ public class formKubus {
         hitungButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                // Exception Handling
                 try {
                     double sisi;
 

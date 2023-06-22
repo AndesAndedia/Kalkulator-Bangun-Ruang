@@ -1,4 +1,5 @@
 public class Tabung extends BangunRuang {
+    // Enkapsulasi
     private double jariJari;
     private double tinggi;
 
@@ -7,6 +8,7 @@ public class Tabung extends BangunRuang {
         this.tinggi = tinggi;
     }
 
+    // Method Overriding (Polimorfisme Dinamis)
     @Override
     public void hitungLuasPermukaan() {
         luasPermukaan = 2 * Math.PI * jariJari * (jariJari + tinggi);

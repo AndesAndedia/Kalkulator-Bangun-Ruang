@@ -42,6 +42,7 @@ public class formBalok {
         buttonHitung.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                // Exception Handling
                 try {
                     double panjang, lebar, tinggi;
 
@@ -52,9 +53,6 @@ public class formBalok {
                     Balok balok = new Balok(panjang, lebar, tinggi);
                     balok.hitungLuasPermukaan();
                     balok.hitungVolume();
-
-                    balok.tampilkanLuasPermukaan();
-                    balok.tampilkanVolume();
 
                     fieldLuas.setText(decimalFormat.format(balok.luasPermukaan));
                     fieldVolume.setText(decimalFormat.format(balok.volume));

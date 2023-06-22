@@ -1,4 +1,5 @@
 public class Balok extends BangunRuang {
+    // Enkapsulasi
     private double panjang;
     private double lebar;
     private double tinggi;
@@ -9,6 +10,7 @@ public class Balok extends BangunRuang {
         this.tinggi = tinggi;
     }
 
+    // Method Overriding (Polimorfisme Dinamis)
     @Override
     public void hitungLuasPermukaan() {
         luasPermukaan = 2 * (panjang * lebar + panjang * tinggi + lebar * tinggi);
